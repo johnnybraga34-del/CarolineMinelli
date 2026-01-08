@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Menu, X, Scale } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,7 +45,7 @@ export function Navigation() {
             <Scale className="w-6 h-6 text-primary group-hover:text-background transition-colors duration-300" />
           </div>
           <div className="flex flex-col">
-            <span className="font-serif text-xl font-bold leading-none text-white">Caroline Minelli</span>
+            <span className="font-serif text-xl font-bold leading-none text-foreground">Caroline Minelli</span>
             <span className="text-[10px] tracking-[0.2em] text-primary uppercase">Advocacia</span>
           </div>
         </Link>
@@ -56,14 +57,15 @@ export function Navigation() {
               key={link.name}
               href={link.href}
               onClick={(e) => scrollToSection(e, link.href)}
-              className="text-sm font-medium text-white/80 hover:text-primary transition-colors uppercase tracking-wide relative group"
+              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors uppercase tracking-wide relative group"
             >
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
+          <ThemeToggle />
           <Button 
-            className="bg-primary hover:bg-white text-background hover:text-background font-semibold transition-all duration-300 rounded-full px-6"
+            className="bg-primary hover:bg-white text-primary-foreground hover:text-primary font-semibold transition-all duration-300 rounded-full px-6 border border-primary hover:border-primary"
             onClick={() => window.open("https://wa.me/5511918231667", "_blank")}
           >
             Fale Conosco
@@ -71,12 +73,15 @@ export function Navigation() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-white hover:text-primary transition-colors"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
-        </button>
+        <div className="flex items-center gap-4 md:hidden">
+          <ThemeToggle />
+          <button
+            className="text-foreground hover:text-primary transition-colors"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}
@@ -94,13 +99,13 @@ export function Navigation() {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => scrollToSection(e, link.href)}
-                  className="text-lg font-serif font-medium text-white hover:text-primary transition-colors py-2 border-b border-white/5"
+                  className="text-lg font-serif font-medium text-foreground hover:text-primary transition-colors py-2 border-b border-border"
                 >
                   {link.name}
                 </a>
               ))}
               <Button 
-                className="w-full mt-4 bg-primary text-background font-bold"
+                className="w-full mt-4 bg-primary text-primary-foreground font-bold"
                 onClick={() => window.open("https://wa.me/5511918231667", "_blank")}
               >
                 Fale Conosco

@@ -5,7 +5,35 @@
 @tailwind utilities;
 
 :root {
-  /* Deep Purple & Gold Theme */
+  /* Light Mode - Professional & Clean */
+  --background: 0 0% 100%;
+  --foreground: 266 61% 11%;
+
+  --primary: 46 64% 53%;         /* #d4af37 (Gold) */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 266 20% 96%;
+  --secondary-foreground: 266 61% 11%;
+
+  --muted: 266 10% 90%;
+  --muted-foreground: 266 10% 40%;
+
+  --accent: 46 64% 53%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 266 10% 80%;
+  --input: 266 10% 80%;
+  --ring: 46 64% 53%;
+
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+.dark {
+  /* Dark Mode - Luxury & Deep */
   --background: 266 61% 11%;     /* #1a0b2e */
   --foreground: 45 20% 96%;      /* Off-white */
 
@@ -21,15 +49,9 @@
   --accent: 46 64% 53%;
   --accent-foreground: 266 61% 11%;
 
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 0 0% 98%;
-
   --border: 261 30% 25%;
   --input: 261 30% 25%;
   --ring: 46 64% 53%;
-
-  --font-serif: 'Playfair Display', serif;
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
 }
 
 @layer base {
@@ -42,7 +64,7 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased font-sans;
+    @apply bg-background text-foreground antialiased font-sans transition-colors duration-300;
     background-image: 
       radial-gradient(circle at 15% 50%, rgba(212, 175, 55, 0.08), transparent 25%),
       radial-gradient(circle at 85% 30%, rgba(138, 79, 255, 0.05), transparent 25%);
